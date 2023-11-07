@@ -28,9 +28,9 @@ Make a conda environment for better experience.
 2) Install opencv. Follow the offical website for installing https://docs.opencv.org/3.4/d2/de6/tutorial_py_setup_in_ubuntu.html 
 3) Install monai , monai-generative , gradio and tqdm 
 ```
-pip3 install monai
+pip3 install monai==1.2.0  ## Errors comes due to different versio. Check the version
 pip3 install monai-generative
-pi3 install gradio
+pip3 install gradio
 pip3 install tqdm
 ```
 Additionally, please ensure you have a compatible version of MONAI installed. You can find more information on installing MONAI at [MONAI Installation Guide](https://github.com/Project-MONAI/MONAI#installation).
@@ -43,6 +43,17 @@ gradio ui_for_generating_bone_image_with_condition.py
 ```
 Go to the url printed in the terminal
 Enjoy your generative model !!.
+
+## How to train the model
+I use Kaggle dataset - Knee Osteoarthritis Dataset with Severity Grading
+https://www.kaggle.com/datasets/shashwatwork/knee-osteoarthritis-dataset-with-severity?resource=download
+
+1) First download the dataset
+2) Open [Latent_space_using_autoencoder.ipynb](./Latent_space_using_autoencoder.ipynb) . Train the autoencoder first. Then save the model
+3) Open [generate_classifier_free_guaidance_bone_condition.ipynb](./generate_classifier_free_guaidance_bone_condition.ipynb) Train the diffusion model and save the model
+4) Use the models in [ui_for_generating_bone_image_with_condition.py](./ui_for_generating_bone_image_with_condition.py)
+
+## Next is anomaly detection !!
 
 ## Contributing
 
