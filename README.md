@@ -1,41 +1,48 @@
 # Generative AI for Anomaly Detection for Bone Diseases
 
 ## Project Overview
+Give me any knee x-ray image , I will tell you where there is arthritis. You can generate Knee x-ray of 5 different level of arthritis using this model. Train it in your own data and share it as medical dataset without fearing for privacy.
 
-Welcome to the "Generative AI for Anomaly Detection for Bone Diseases" project readme. This project aims to leverage generative AI techniques to assist in the early detection and diagnosis of bone diseases using medical imaging. The project utilizes the MONAI framework and employs a diffusion model to generate counterfactual images, illustrating what a patient's bone structure would look like in the absence of any disease. The primary output of the model is a heatmap highlighting the differences between the original images and the generated counterfactual images.
+
+## Steps:
+
+1) Vairational autoencoder (VAE) is train to convert input images (112x112) into a latent space of 3x28x28.
+2) Diffusion model (DDPM) is tranined to generate x-ray images of different level of Knee Arthritis. Actually DDPM is trained in latent space and the autoencoder is used for encoding and decoding to grayscale image of size 112x112.
+3) The same diffusion model is used to do image to image translation. A healthy image is generated from a given diseased image.
+4) Comparsion between original diseased image and the generated healthy image as heat map.
+
+## UI for diffusion model to generate x-ray images of different level of Knee Arthritis.
+Gradio based UI is presented here below you can run it in your localhost.
+
+![Screenshot from 2023-11-06 00-47-07](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/ea73d47c-5611-4c03-93a9-cb7531665453)
+
+![Screenshot from 2023-11-06 00-47-44](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/c40575a8-4c1a-41df-a871-0f7962f81582)
 
 
-## Installation
+## Run the GUI for image generation:
+You will need GPU for running this. 
 
-Before you can get started with this project, make sure to install the necessary dependencies. It's recommended to create a virtual environment to manage the dependencies. You can install the required packages using pip:
+## Install the required packages:
+Make a conda environment for better experience.
+1) Install pytorch for GPU . Follow the offical website for installing https://pytorch.org/get-started/locally
+2) Install opencv. Follow the offical website for installing https://docs.opencv.org/3.4/d2/de6/tutorial_py_setup_in_ubuntu.html 
+3) Install monai , monai-generative , gradio and tqdm 
 ```
-pip install monai
-pip install monai-generative
+pip3 install monai
+pip3 install monai-generative
+pi3 install gradio
+pip3 install tqdm
 ```
 Additionally, please ensure you have a compatible version of MONAI installed. You can find more information on installing MONAI at [MONAI Installation Guide](https://github.com/Project-MONAI/MONAI#installation).
 
-## Usage
-
-To effectively use this project, follow these high-level steps:
-
-1. **Data Preparation**: Prepare your medical image dataset containing examples of bone diseases. Make sure your dataset is well-structured and labeled.
-
-2. **Training the Model**: Train the diffusion model using your prepared dataset. This step involves setting up and running the training process to generate counterfactual images.
-
-3. **Generating Counterfactual Images**: After training, use the model to generate counterfactual images for specific disease images.
-
-4. **Output and Visualization**: Examine the heatmap of differences between original and generated images to identify anomalies and potential bone diseases.
-
-5. **Fine-tuning and Evaluation**: Optionally, fine-tune the model and evaluate its performance for specific applications and datasets.
-
-## Data Preparation
-
-Ensure your dataset is organized and labeled correctly. It should consist of images of bone diseases with corresponding disease labels. You may need to pre-process your data, such as resizing, normalizing, or augmenting images.
-
-## Training the Model and Generating Counterfactual Images
-
-Check the image_segmentation_usingGAI.ipynb
-
+## Run the GUI code.
+```
+python3 ui_for_generating_bone_image_with_condition.py
+or
+gradio ui_for_generating_bone_image_with_condition.py
+```
+Go to the url printed in the terminal
+Enjoy your generative model !!.
 
 ## Contributing
 
