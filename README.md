@@ -1,12 +1,16 @@
 # Generative AI for Anomaly Detection for Bone Diseases
 
+## Note: This is a part of a bigger project called "Pathology AI" . 
+Pathology AI is the application of various generative AI in healthcare especially in pathology. Pathology is a branch of medical science that is focused on the study and diagnosis of disease. Pathology AI will be a combination of diffusion models,vision transformers and LLM. This will revolutionize the world of healthcare.
+
 ## Project Overview
 Give me any knee x-ray image , I will tell you where there is arthritis. You can generate Knee x-ray of 5 different level of arthritis using this model. Train it in your own data and share it as medical dataset without fearing for privacy.
 
 
+
 ## Steps:
 
-1) Vairational autoencoder (VAE) is train to convert input images (112x112) into a latent space of 3x28x28.
+1) Vairational autoencoder (VAE) is trained to convert input images (112x112) into a latent space of 3x28x28.
 2) Diffusion model (DDPM) is tranined to generate x-ray images of different level of Knee Arthritis. Actually DDPM is trained in latent space and the autoencoder is used for encoding and decoding to grayscale image of size 112x112.
 3) The same diffusion model is used to do image to image translation. A healthy image is generated from a given diseased image.
 4) Comparsion between original diseased image and the generated healthy image as heat map.
@@ -28,10 +32,10 @@ Additionally, please ensure you have a compatible version of MONAI installed. Yo
 ## How to train the model
 I use Kaggle dataset - Knee Osteoarthritis Dataset with Severity Grading
 https://www.kaggle.com/datasets/shashwatwork/knee-osteoarthritis-dataset-with-severity?resource=download
-
+** GPU is needed for training.
 1) First download the dataset
 2) Open [Latent_space_using_autoencoder.ipynb](./Latent_space_using_autoencoder.ipynb) . Train the autoencoder first. Then save the model
-3) Open [generate_classifier_free_guaidance_bone_condition.ipynb](./generate_classifier_free_guaidance_bone_condition.ipynb) Train the diffusion model , enbedding models and save the models.
+3) Open [generate_classifier_free_guaidance_bone_condition.ipynb](./generate_classifier_free_guaidance_bone_condition.ipynb) Train the diffusion model , embedding models and save the models.
 4) Use the models in [ui_for_generating_bone_image_with_condition.py](./ui_for_generating_bone_image_with_condition.py)
 
 ## UI for diffusion model to generate x-ray images of different level of Knee Arthritis.
@@ -42,7 +46,7 @@ Gradio based UI is presented here below you can run it in your localhost.
 ![Screenshot from 2023-11-06 00-47-44](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/c40575a8-4c1a-41df-a871-0f7962f81582)
 
 
-## Run the GUI for image generation:
+## Run the UI for image generation:
 You will need GPU for running this. 
 Load the trained model properly in [ui_for_generating_bone_image_with_condition.py](./ui_for_generating_bone_image_with_condition.py)
 ```
@@ -53,7 +57,6 @@ gradio ui_for_generating_bone_image_with_condition.py
 Go to the url printed in the terminal
 Enjoy your generative model !!.
 
-# Note if you don't want to train the models drive link is sharing below:
 
 ## Next is anomaly detection !!
 
