@@ -38,6 +38,10 @@ https://www.kaggle.com/datasets/shashwatwork/knee-osteoarthritis-dataset-with-se
 3) Open [generate_classifier_free_guaidance_bone_condition.ipynb](./generate_classifier_free_guaidance_bone_condition.ipynb) Train the diffusion model , embedding models and save the models.
 4) Use the models in [ui_for_generating_bone_image_with_condition.py](./ui_for_generating_bone_image_with_condition.py)
 
+## Note: Pretrained model parameters - 
+If you don't want to train or just want to test. Here is drive link . Download them
+https://drive.google.com/drive/folders/165e5Bw253Y_8FTmKfgmP9x1WVeWVjmDz?usp=sharing 
+
 ## UI for diffusion model to generate x-ray images of different level of Knee Arthritis.
 Gradio based UI is presented here below you can run it in your localhost.
 
