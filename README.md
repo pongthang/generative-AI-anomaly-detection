@@ -57,8 +57,19 @@ gradio ui_for_generating_bone_image_with_condition.py
 Go to the url printed in the terminal
 Enjoy your generative model !!.
 
+## Autoencoder:
+* Input size - 112x112
+* Latent space size - 3x28x28
+![image](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/335c62ba-bd40-457a-a2cb-c54aedfe1d4e)
 
-## Next is anomaly detection !!
+
+## Anomaly Detection.
+From a given diseased x-ray image a healthy image is generated. We can think in other way like the model generate an x-ray image as if the same person doesn't have the disease.
+
+![image](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/1546b239-a109-4f53-b699-7b01437f13e1)
+
+## Difference between original and generated as heat-map.
+![image](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/512617ba-ff4a-45b2-a302-4661b6ff14e0)
 
 ## Contributing
 
