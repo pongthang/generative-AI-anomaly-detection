@@ -1,6 +1,6 @@
 # Generative AI for Anomaly Detection for Bone Diseases
 
-## Note: This is a part of a bigger project called "Pathology AI" . 
+## Note: Aim is to build "Pathology AI" . 
 Pathology AI is the application of various generative AI in healthcare especially in pathology. Pathology is a branch of medical science that is focused on the study and diagnosis of disease. Pathology AI will be a combination of diffusion models,vision transformers and LLM. This will revolutionize the world of healthcare.
 
 ## Project Overview
