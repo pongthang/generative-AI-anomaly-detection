@@ -38,13 +38,13 @@ https://www.kaggle.com/datasets/shashwatwork/knee-osteoarthritis-dataset-with-se
 3) Open [generate_classifier_free_guaidance_bone_condition.ipynb](./generate_classifier_free_guaidance_bone_condition.ipynb) Train the diffusion model , embedding models and save the models.
 4) Open [anomaly_detection_knee.ipynb](./anomaly_detection_knee.ipynb) In this notebook anomaly detection is implemented. All the trained models are used here to generate healthy x-ray image from a diseased one.
 
-** Change the paths of the trained models when they are used in [anomaly_detection_knee.ipynb](./anomaly_detection_knee.ipynb) and [ui_main_anomaly.py](./ui_main_anomaly.py).
+** Change the paths of the trained models according to directory where you saved the models , when they are used in [anomaly_detection_knee.ipynb](./anomaly_detection_knee.ipynb) and [ui_main_anomaly.py](./ui_main_anomaly.py).
 
 ## Note: Pretrained model parameters - 
 If you don't want to train or just want to test. Here is drive link . Download them
 https://drive.google.com/drive/folders/165e5Bw253Y_8FTmKfgmP9x1WVeWVjmDz?usp=sharing 
 
-## UI for diffusion model to generate x-ray images of different level of Knee Arthritis.
+## UI for diffusion model to generate x-ray images of different level of Knee Arthritis and anomaly detection.
 Gradio based UI is presented here below you can run it in your localhost.
 ### Bone X-ray Image Generation:
 
