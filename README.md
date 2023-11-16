@@ -36,7 +36,9 @@ https://www.kaggle.com/datasets/shashwatwork/knee-osteoarthritis-dataset-with-se
 1) First download the dataset
 2) Open [Latent_space_using_autoencoder.ipynb](./Latent_space_using_autoencoder.ipynb) . Train the autoencoder first. Then save the model
 3) Open [generate_classifier_free_guaidance_bone_condition.ipynb](./generate_classifier_free_guaidance_bone_condition.ipynb) Train the diffusion model , embedding models and save the models.
-4) Use the models in [ui_for_generating_bone_image_with_condition.py](./ui_for_generating_bone_image_with_condition.py)
+4) Open [anomaly_detection_knee.ipynb](./anomaly_detection_knee.ipynb) In this notebook anomaly detection is implemented. All the trained models are used here to generate healthy x-ray image from a diseased one.
+
+** Change the paths of the trained models when they are used in [anomaly_detection_knee.ipynb](./anomaly_detection_knee.ipynb) and [ui_main_anomaly.py](./ui_main_anomaly.py).
 
 ## Note: Pretrained model parameters - 
 If you don't want to train or just want to test. Here is drive link . Download them
@@ -44,19 +46,31 @@ https://drive.google.com/drive/folders/165e5Bw253Y_8FTmKfgmP9x1WVeWVjmDz?usp=sha
 
 ## UI for diffusion model to generate x-ray images of different level of Knee Arthritis.
 Gradio based UI is presented here below you can run it in your localhost.
+### Bone X-ray Image Generation:
 
-![Screenshot from 2023-11-06 00-47-07](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/ea73d47c-5611-4c03-93a9-cb7531665453)
+![Screenshot from 2023-11-16 23-46-01](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/18c5b234-8088-42bd-8f92-dc056dfe9200)
 
-![Screenshot from 2023-11-06 00-47-44](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/c40575a8-4c1a-41df-a871-0f7962f81582)
+#### Generated:
+
+![Screenshot from 2023-11-16 23-47-02](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/2f76644e-9c8c-4319-9a3a-6ef3b58ec38b)
+
+### Healthy image from given unhealthy image:
+
+![Screenshot from 2023-11-16 23-44-58](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/fa67ba6f-2ad4-46cd-8a83-461602913f81)
+### Generating anomaly map after adding contrast:
+
+![Screenshot from 2023-11-16 23-45-40](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/d3d52e7b-8340-4e2b-ba26-16e1a490ee19)
 
 
-## Run the UI for image generation:
+
+
+## Run the above UI :
 You will need GPU for running this. 
 Load the trained model properly in [ui_for_generating_bone_image_with_condition.py](./ui_for_generating_bone_image_with_condition.py)
 ```
-python3 ui_for_generating_bone_image_with_condition.py
+python3 ui_main_anomaly.py
 or
-gradio ui_for_generating_bone_image_with_condition.py
+gradio ui_main_anomaly.py
 ```
 Go to the url printed in the terminal
 Enjoy your generative model !!.
