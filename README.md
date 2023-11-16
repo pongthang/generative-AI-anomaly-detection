@@ -66,7 +66,7 @@ Gradio based UI is presented here below you can run it in your localhost.
 
 ## Run the above UI :
 You will need GPU for running this. 
-Load the trained model properly in [ui_for_generating_bone_image_with_condition.py](./ui_for_generating_bone_image_with_condition.py)
+Load the trained models properly in [ui_main_anomaly.py](./ui_main_anomaly.py)
 ```
 python3 ui_main_anomaly.py
 or
