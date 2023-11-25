@@ -30,7 +30,7 @@ Additionally, please ensure you have a compatible version of MONAI installed. Yo
 
 
 ## How to train the model
-I use Kaggle dataset - Knee Osteoarthritis Dataset with Severity Grading
+I used Kaggle dataset - Knee Osteoarthritis Dataset with Severity Grading
 https://www.kaggle.com/datasets/shashwatwork/knee-osteoarthritis-dataset-with-severity?resource=download
 ** GPU is needed for training.
 1) First download the dataset
