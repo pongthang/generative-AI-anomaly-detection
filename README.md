@@ -81,13 +81,16 @@ Enjoy your generative model !!.
 ![image](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/335c62ba-bd40-457a-a2cb-c54aedfe1d4e)
 
 
-## Anomaly Detection.
+## Image to Image translation.
 From a given diseased x-ray image a healthy image is generated. We can think in other way like the model generate an x-ray image as if the same person doesn't have the disease.
+![_BE601P Presentation b19011](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/f9f5a15a-ecae-4711-b64a-ffeb5f2dfe0b)
 
-![image](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/1546b239-a109-4f53-b699-7b01437f13e1)
 
 ## Difference between original and generated as heat-map.
-![image](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/512617ba-ff4a-45b2-a302-4661b6ff14e0)
+
+![_BE601P Presentation b19011](https://github.com/pongthang/generative-AI-anomaly-detection/assets/57061570/06b54769-375f-4532-857a-cbedf7a5ac20)
+
+
 
 ## Contributing
 
