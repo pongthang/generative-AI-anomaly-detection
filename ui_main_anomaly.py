@@ -262,7 +262,7 @@ with gr.Blocks(theme=my_theme,title="Knee Predict") as demo:
         gr.Markdown("### From a given unhealthy x-ray image generate a healthy image keeping the size and other important features")
         with gr.Row():
             image_input = gr.Image(height=450,width=450,label="Upload your knee x-ray here")
-            img_out_heal = gr.Image(height=450,width=450)
+            img_out_heal = gr.Image(height=450,width=450,label="Healthy image")
         with gr.Row():
             gr.Markdown()
             generate_healthy_button = gr.Button("Generate",size="lg")
@@ -273,7 +273,7 @@ with gr.Blocks(theme=my_theme,title="Knee Predict") as demo:
                      """)
         with gr.Row():
             # image_input = gr.Image()
-            image_output = [gr.Image(height=450,width=450),gr.Image(height=450,width=450)] # contrast and anomaly
+            image_output = [gr.Image(height=450,width=450,label="Contrasted"),gr.Image(height=450,width=450,label="Anomaly map")] # contrast and anomaly
         with gr.Row():
             gr.Markdown()
             update_anomaly_button = gr.Button("Update",size="lg")
