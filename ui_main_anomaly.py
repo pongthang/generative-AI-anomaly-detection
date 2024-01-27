@@ -247,7 +247,7 @@ with gr.Blocks(theme=my_theme,title="Knee Predict") as demo:
         gr.Markdown("#### Generate Knee X-ray images with condition. You can select the level of Osteoarthritis and click on generate . Then the AI will generate Knee X-ray image of the given condition.")
         with gr.Row():
             output =gr.Image(height=450,width=450)
-            gr.Image(value="doc_bone.png",label="AI-Assisted Healthcare")
+            gr.Image(value="images/doc_bone.png",label="AI-Assisted Healthcare")
         # output= gr.Textbox(label="Output Box")
         gr.Markdown(" ### Select the level of disease severity you want to generate !!")
         input = gr.Radio(["Normal", "Level_1", "Level_2","Level_3","Worse"], label="Knee Osteoarthritis Disease Severity Levels",scale=1)
