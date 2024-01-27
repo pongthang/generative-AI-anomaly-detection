@@ -203,27 +203,81 @@ def generate_condition_bone_images(grad=0):
 
 ##--------------------------------> UI <-----------------------------##
 
-with gr.Blocks() as demo:
-    gr.Markdown("Generate Bone x-ray Images and detect anomaly !!")
+# with gr.Blocks() as demo:
+#     gr.Markdown("Generate Bone x-ray Images and detect anomaly !!")
+#     with gr.Tab("Generate Image on conditions"):
+#         output =gr.Image(height=450,width=450)
+#         # output= gr.Textbox(label="Output Box")
+#         greet_btn = gr.Button("Generate")
+#         input = gr.Radio(["Normal", "Level_1", "Level_2","Level_3","Worse"], label="Knee Osteoarthritis", info="Select the level of disease you want to generate !!")
+
+
+#     with gr.Tab("Anomaly Detection"):
+#         gr.Markdown("Generate healthy x-ray image and compare with the original to get the anomaly.")
+#         with gr.Row():
+#             image_input = gr.Image(height=450,width=450)
+#             img_out_heal = gr.Image(height=450,width=450)
+#         generate_healthy_button = gr.Button("Generate")
+
+#         gr.Markdown("Generate Anomaly map")
+#         with gr.Row():
+#             # image_input = gr.Image()
+#             image_output = [gr.Image(height=450,width=450),gr.Image(height=450,width=450)] # contrast and anomaly
+#         update_anomaly_button = gr.Button("Update")
+#         inputs_vlaues = [gr.Slider(0, 510, value=284, label="Brightness", info="Choose between 0 and 510"),
+#                         gr.Slider(0, 254, value=234, label="Contrast", info="Choose between 0 and 254"),
+#                         # gr.Slider(0, 50, value=7, label="Canny Threshold 1", info="Choose between 0 and 50"),
+#                         # gr.Slider(0, 50, value=20, label="Canny Threshold 2", info="Choose between 0 and 50"),
+#                 ]
+        
+#         # inputs_vlaues.append(image_input)
+#     greet_btn.click(fn=generate_condition_bone_images, inputs=input,outputs=output, api_name="generate_bone")
+#     generate_healthy_button.click(get_healthy,inputs=image_input,outputs=img_out_heal)
+#     update_anomaly_button.click(update, inputs=inputs_vlaues, outputs=image_output)
+
+
+my_theme = 'YenLai/Superhuman'
+
+
+with gr.Blocks(theme=my_theme,title="Knee Predict") as demo:
+    gr.Markdown(""" # Knee Predict 
+    ## Generative AI for Anomaly Detection and Analysis for Bone Diseases - Knee Osteoarthritis """  )
+    
     with gr.Tab("Generate Image on conditions"):
-        output =gr.Image(height=450,width=450)
+        gr.Markdown("#### Generate Knee X-ray images with condition. You can select the level of Osteoarthritis and click on generate . Then the AI will generate Knee X-ray image of the given condition.")
+        with gr.Row():
+            output =gr.Image(height=450,width=450)
+            gr.Image(value="doc_bone.png",label="AI-Assisted Healthcare")
         # output= gr.Textbox(label="Output Box")
-        greet_btn = gr.Button("Generate")
-        input = gr.Radio(["Normal", "Level_1", "Level_2","Level_3","Worse"], label="Knee Osteoarthritis", info="Select the level of disease you want to generate !!")
+        gr.Markdown(" ### Select the level of disease severity you want to generate !!")
+        input = gr.Radio(["Normal", "Level_1", "Level_2","Level_3","Worse"], label="Knee Osteoarthritis Disease Severity Levels",scale=1)
+        with gr.Row():
+            greet_btn = gr.Button("Generate",size="lg",scale=1,interactive=True)
+            gr.Markdown()
+            gr.Markdown()
+        
 
 
     with gr.Tab("Anomaly Detection"):
-        gr.Markdown("Generate healthy x-ray image and compare with the original to get the anomaly.")
+        gr.Markdown("### From a given unhealthy x-ray image generate a healthy image keeping the size and other important features")
         with gr.Row():
-            image_input = gr.Image(height=450,width=450)
+            image_input = gr.Image(height=450,width=450,label="Upload your knee x-ray here")
             img_out_heal = gr.Image(height=450,width=450)
-        generate_healthy_button = gr.Button("Generate")
+        with gr.Row():
+            gr.Markdown()
+            generate_healthy_button = gr.Button("Generate",size="lg")
+            gr.Markdown()
 
-        gr.Markdown("Generate Anomaly map")
+        gr.Markdown("""### Generate Anomaly by comparing the healthy and unhealthy Knee x-rays
+                    #### Click the update button to update the anomaly after changing the contrast and brightness. 
+                     """)
         with gr.Row():
             # image_input = gr.Image()
             image_output = [gr.Image(height=450,width=450),gr.Image(height=450,width=450)] # contrast and anomaly
-        update_anomaly_button = gr.Button("Update")
+        with gr.Row():
+            gr.Markdown()
+            update_anomaly_button = gr.Button("Update",size="lg")
+            gr.Markdown()
         inputs_vlaues = [gr.Slider(0, 510, value=284, label="Brightness", info="Choose between 0 and 510"),
                         gr.Slider(0, 254, value=234, label="Contrast", info="Choose between 0 and 254"),
                         # gr.Slider(0, 50, value=7, label="Canny Threshold 1", info="Choose between 0 and 50"),
@@ -231,9 +285,12 @@ with gr.Blocks() as demo:
                 ]
         
         # inputs_vlaues.append(image_input)
+        gr.Examples(examples='examples' , fn=get_healthy, cache_examples=True, inputs=image_input, outputs=img_out_heal)
     greet_btn.click(fn=generate_condition_bone_images, inputs=input,outputs=output, api_name="generate_bone")
     generate_healthy_button.click(get_healthy,inputs=image_input,outputs=img_out_heal)
     update_anomaly_button.click(update, inputs=inputs_vlaues, outputs=image_output)
+
+
 
 if __name__ == "__main__":
     demo.launch(share=True,server_name='0.0.0.0')
